@@ -81,10 +81,9 @@ export default class App extends CoreApp {
           }
           
           let client = getApolloClient(ctx, initialState);
-          const cache = client.cache;
           
           ctx.element = (
-            <ApolloContext.Provider cache={cache}>
+            <ApolloContext.Provider cache={client.cache}>
               <ApolloProvider client={client}>{ctx.element}</ApolloProvider>
             </ApolloContext.Provider>
           )
